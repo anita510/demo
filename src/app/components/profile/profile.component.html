@@ -1,0 +1,298 @@
+<div class="task bg-info">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand text-white" href="#">Demo App</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/home"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">ABOUT US</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">JOBS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">CLIENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">EMPLOYERS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">CONTACT US</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="main row">
+  <div class="col-md-3"></div>
+  <div class="col-md-3">
+    <p class="text-secondary">
+      <b>Profile</b>
+    </p>
+    <br />
+    <img [src]="imgUrl" width="215px" height="250px" /><br />
+    <button type="button" class="btn btn-warning">Edit Photo</button> &nbsp;
+    <button
+      type="button"
+      class="btn btn-warning"
+      (click)="openVerticallyCentered(content)"
+    >
+      Edit Profile
+    </button>
+  </div>
+  <div class="col-md-4">
+    <p style="margin-top: 20%">
+      i am {{ data.firstname }} and i am {{ data.age }} years and you can send
+      your emails to {{ data.email }}. i live in the state of {{ data.state }}.
+      i like to {{ data.tag }}.and please send me newsletters.please reach out
+      to me on my phone number.
+    </p>
+
+    <br />
+    <button type="button" class="btn btn-success">I Agree</button>
+  </div>
+</div>
+<div class="footer text-center">
+  <h5>Subscribe to our Job Seeker Mailing List</h5>
+  <br />
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Enter Your Email Address"
+  />
+</div>
+<!-- Modal -->
+<ng-template #content let-modal>
+  <form [formGroup]="reactForm" (submit)="reactsubmit()">
+    <div class="modal-header form-group bg-info">
+      <h4 class="modal-title">Register</h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <!-- <div class="col-md-3">
+          <img
+            src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179865.jpg"
+            width="100px"
+            height="100px"
+          />
+        </div> -->
+        <div class="col field">
+          <div class="row">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First Name"
+              formControlName="firstname"
+              name="firstname"
+            />
+
+            &nbsp;
+            <input
+              type="text"
+              class="form-control"
+              placeholder="last name"
+              formControlName="lastname"
+              name="lastname"
+            />
+          </div>
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              reactForm.controls['firstname'].touched &&
+              !reactForm.controls['firstname'].valid
+            "
+          >
+            Field Required
+          </p>
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              reactForm.controls['lastname'].touched &&
+              !reactForm.controls['lastname'].valid
+            "
+          >
+            Field Required
+          </p>
+          <br />
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            formControlName="email"
+            name="email"
+          />
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              reactForm.controls['email'].touched &&
+              !reactForm.controls['email'].valid
+            "
+          >
+            Field Required
+          </p>
+          <br />
+
+          <input
+            type="text"
+            class="form-control"
+            placeholder="(541)754-3010"
+            formControlName="number"
+            name="number"
+          />
+          <br />
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              reactForm.controls['number'].touched &&
+              !reactForm.controls['number'].valid
+            "
+          >
+            Field Required
+          </p>
+
+          <label>Age:</label>
+          <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            min="20"
+            max="60"
+            formControlName="age"
+          ></mat-slider>
+          <label>State:</label>
+          <select formControlName="state" class="form-control">
+            <option value="maharashtra">Maharashtra</option>
+            <option value="montana">Montana</option>
+            <option value="montreal">Montreal</option>
+            <option value="mayo">Mayo</option>
+          </select>
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              reactForm.controls['state'].touched &&
+              !reactForm.controls['state'].valid
+            "
+          >
+            Field Required
+          </p>
+          <label>Country:</label>
+          <select formControlName="country" class="form-control">
+            <option value="india">India</option>
+            <option value="us">US</option>
+            <option value="canada">Canada</option>
+            <option value="ireland">Ireland</option> </select
+          ><br />
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              reactForm.controls['country'].touched &&
+              !reactForm.controls['country'].valid
+            "
+          >
+            Field Required
+          </p>
+          <label
+            >Address: <i>(Please fill both home and company address)</i></label
+          >
+          <select
+            formControlName="address"
+            class="form-control"
+            (change)="addfield()"
+          >
+            <option value="home">Home</option>
+            <option value="company">Company</option> </select
+          ><br />
+          <div *ngIf="advab == 'home'">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="home 1"
+              formControlName="home1"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="home 2"
+              formControlName="home2"
+            />
+          </div>
+          <div *ngIf="advab == 'company'">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="company 1"
+              formControlName="company1"
+            />
+            <input
+              type="text"
+              class="form-control"
+              placeholder="company 2"
+              formControlName="company2"
+            />
+          </div>
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              (reactForm.controls['home1'].touched &&
+                !reactForm.controls['home1'].valid) ||
+              (reactForm.controls['home2'].touched &&
+                !reactForm.controls['home2'].valid) ||
+              (reactForm.controls['company1'].touched &&
+                !reactForm.controls['company1'].valid) ||
+              (reactForm.controls['company2'].touched &&
+                !reactForm.controls['company2'].valid)
+            "
+          >
+            Please Fill Both Address
+          </p>
+          <tag-input formControlName="tag" name="tag"></tag-input>
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              reactForm.controls['tag'].touched &&
+              !reactForm.controls['tag'].valid
+            "
+          >
+            Field Required
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-info" [disabled]="!reactForm.valid">
+        Submit
+      </button>
+      <button
+        type="button"
+        class="btn btn-light"
+        (click)="modal.close('Close click')"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</ng-template>

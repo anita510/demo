@@ -1,0 +1,25 @@
+nav {
+  padding: 2%;
+}
+.main {
+  padding: 5%;
+  width: 100%;
+}
+.field .row input {
+  width: 49%;
+}
+.field .row {
+  margin: 0%;
+}
+.footer {
+  margin-top: 10%;
+  padding: 10%;
+  background-color: black;
+  color: aliceblue;
+}
+.footer input {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+}

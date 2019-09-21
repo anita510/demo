@@ -1,0 +1,90 @@
+.task {
+  padding: 8%;
+  background-image: url("src/assets/img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-brand {
+  color: black;
+  padding: 8px;
+  font-size: 20px;
+  background-color: white;
+
+}
+
+.front {
+  margin-top: 10%;
+}
+
+.check {
+  margin-top: 2%;
+}
+
+select {
+  width: 25%;
+}
+
+.wrapper {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.line hr {
+  margin: 0;
+  height: 100%;
+  border: 2px solid #6cd5ff;
+  padding-left: 79.6%;
+
+}
+
+/* .wrapper button {
+  position: absolute;
+} */
+.field .row input {
+  width: 49%;
+}
+
+.field .row {
+  margin: 0%;
+}
+
+.field input {
+  width: 100%;
+}
+
+.field select {
+  width: 100%;
+}
+
+.leaders {
+  padding: 8%;
+  background-color: #f7f5f2;
+}
+
+hr {
+  width: 20%;
+  height: 100%;
+  border: 2px solid #6cd5ff;
+}
+
+.footer {
+  padding: 10%;
+  background-color: black;
+  color: aliceblue;
+}
+
+.footer input {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+}
+
+mat-slider {
+  width: 300px;
+}
